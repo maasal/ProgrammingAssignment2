@@ -5,17 +5,20 @@
 ## First transform the matrix using this function
 
 makeCacheMatrix <- function(x = matrix()) {
+    #Makes init values
     inv <- NULL
     set <- function(y) {
         x <<- y
         inv <<- NULL
     }
-    get <- function(){
+    get <- function(){ 
         return(x)
     }
+    #Sets inverse matrix to cache
     setinv <- function(calculatedInvMatrix){
         inv <<- calculatedInvMatrix
     }
+    #Returns the cached inverse matrix 
     getinv <- function(){
         return(inv)
     }
@@ -28,11 +31,13 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
     inv <- x$getinv()
+    #Checks if already calculated the inverse matrix
     if(!is.null(inv)){
         message("getting cached inversematrix")
         return(inv)
     }
     matrix <- x$get()
+    #calculates the inverse matrix and puts it in cache
     inv <- solve(matrix)
     x$setinv(inv)
     return(inv)
