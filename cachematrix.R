@@ -1,5 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The first function transforms an invertible square matrix to a list that can
+## handle cached values. The second function uses this list to calculate the invers
+## if it has not been calculated already in which case it returns a cached value.
 
 ## First transform the matrix using this function
 
